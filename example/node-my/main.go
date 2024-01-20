@@ -43,13 +43,13 @@ func main() {
 		}
 	}
 
-	ip = net.ParseIP("192.168.3.79")
+	ip = net.ParseIP("192.168.3.26")
 
 	log := artnet.NewDefaultLogger()
 	n := artnet.NewNode("Shelly Gateway", code.StNode, ip, log)
 	n.Config.Description = "YOLO"
 	customBroadcastAddr := net.UDPAddr{
-		IP:   net.IPv4(192, 168, 3, 255),
+		IP:   net.IPv4(192, 168, 178, 255),
 		Port: 6454,
 	}
 	n.SetOption(artnet.NodeBroadcastAddress(customBroadcastAddr))

@@ -25,29 +25,25 @@ func Input(data []artnet.InputPort) artnet.NodeOption {
 }
 
 func main() {
-	/*
-		artsubnet := "2.0.0.0/8"
-		_, cidrnet, _ := net.ParseCIDR(artsubnet)
+	artsubnet := "2.0.0.0/8"
+	_, cidrnet, _ := net.ParseCIDR(artsubnet)
 
-		addrs, err := net.InterfaceAddrs()
-		if err != nil {
-			fmt.Printf("error getting ips: %s\n", err)
-		}
-	*/
+	addrs, err := net.InterfaceAddrs()
+	if err != nil {
+		fmt.Printf("error getting ips: %s\n", err)
+	}
 
 	var ip net.IP
-	/*
-		fmt.Printf("%+v", addrs)
+	fmt.Printf("%+v", addrs)
 
-		for _, addr := range addrs {
-			ip = addr.(*net.IPNet).IP
-			if cidrnet.Contains(ip) {
-				break
-			}
+	for _, addr := range addrs {
+		ip = addr.(*net.IPNet).IP
+		if cidrnet.Contains(ip) {
+			break
 		}
-	*/
+	}
 
-	ip = net.ParseIP("192.168.178.26")
+	// ip = net.ParseIP("192.168.178.26")
 
 	log := artnet.NewDefaultLogger()
 	n := artnet.NewNode("Shelly Gateway", code.StNode, ip, log)
